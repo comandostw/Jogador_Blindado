@@ -69,6 +69,116 @@ body {
   font-weight: 600;
 }
 
+/* ===== Grade Pixel ===== */
+.pixel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(68, 12px);
+  grid-template-rows: repeat(38, 12px);
+  grid-column-gap: 1px;
+  grid-row-gap: 1px;
+}
+
+.pixel {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pixel:hover {
+  border: 1px solid #999;
+}
+
+.sp-picker-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+#colorPicker {
+  width: 50px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+}
+
+#selectedHex {
+  font-family: monospace;
+  font-weight: bold;
+  color: #333;
+}
+
+.color-input-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 10px;
+  gap: 5px;
+}
+
+.color-input-container input {
+  width: 100px;
+  padding: 5px 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: monospace;
+  text-transform: uppercase;
+}
+
+.color-input-container button {
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.color-input-container button:hover {
+  background-color: #45a049;
+}
+
+/* ==== historico ==== */
+.color-history {
+  display: grid;
+  grid-template-columns: repeat(12, 24px);
+  grid-gap: 5px;
+  margin-top: 10px;
+}
+
+.color-history div {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.color-history div:hover {
+  transform: scale(1.2);
+  border-color: #888;
+}
+
+
+/* ==== hover da grade ==== */
+.pixel:hover {
+  outline: 2px solid #ff9800; /* destaca pixel em laranja */
+  cursor: pointer;
+  transition: outline 0.1s;
+}
+
 /* ===== Tabelas ===== */
 table {
   width: 100%;
