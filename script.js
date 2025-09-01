@@ -1,62 +1,5 @@
 const copyFeedback = document.getElementById("copy-feedback");
 
-// ==== Dados das tabelas ====
-const tabelas = {
-    pessoas: {
-        titulo: "Tabela de Pessoas",
-        colunas: ["Nome", "Idade", "Cidade"],
-        dados: [
-            ["Maria", "22", "São Paulo"],
-            ["João", "28", "Rio de Janeiro"],
-            ["Lucas", "31", "Curitiba"]
-        ]
-    },
-    produtos: {
-        titulo: "Tabela de Produtos",
-        colunas: ["Produto", "Preço", "Estoque"],
-        dados: [
-            ["Notebook", "R$ 3.000", "15"],
-            ["Mouse", "R$ 80", "200"],
-            ["Teclado", "R$ 150", "120"]
-        ]
-    },
-    notas: {
-        titulo: "Tabela de Notas",
-        colunas: ["Aluno", "Matéria", "Nota"],
-        dados: [
-            ["Maria", "Matemática", "9.0"],
-            ["João", "Português", "7.5"],
-            ["Lucas", "História", "8.2"]
-        ]
-    },
-    pixel: {
-        titulo: "Pixel Grid",
-        tipo: "pixel"
-    }
-};
-
-// ==== Seletores principais ====
-const tabelaContainer = document.getElementById("tabela-container");
-const tituloTabela = document.getElementById("titulo-tabela");
-
-// ==== Função: renderizar tabela normal ====
-function renderTabelaNormal(info) {
-    let html = "<table><thead><tr>";
-    info.colunas.forEach(col => {
-        html += `<th>${col}</th>`;
-    });
-    html += "</tr></thead><tbody>";
-    info.dados.forEach(linha => {
-        html += "<tr>";
-        linha.forEach((cel, index) => {
-            html += `<td data-label="${info.colunas[index]}">${cel}</td>`;
-        });
-        html += "</tr>";
-    });
-    html += "</tbody></table>";
-    tabelaContainer.innerHTML = html;
-}
-
 function rgbToHex(rgb) {
     if (!rgb) return "#ffffff";
     const result = rgb.match(/\d+/g);
@@ -127,7 +70,7 @@ function renderPixelGridAdvanced() {
             // Hover: sempre mostra info, formato !w <HEX> <YxX>
             pixel.addEventListener("mouseenter", () => {
                 const cor = rgbToHex(pixel.style.background);
-                hoverInfo.textContent = `!w ${cor} ${pixel.dataset.y}x${pixel.dataset.x}`;
+                hoverInfo.textContent = `!w ${cor} ${pixel.dataset.x}x${pixel.dataset.y}`;
             });
 
             pixel.addEventListener("mouseleave", () => {
@@ -137,7 +80,7 @@ function renderPixelGridAdvanced() {
 
             pixel.addEventListener("click", () => {
                 const cor = rgbToHex(pixel.style.background);
-                const info = `!w ${cor} ${pixel.dataset.y}x${pixel.dataset.x}`;
+                const info = `!w ${cor} ${pixel.dataset.x}x${pixel.dataset.y}`;
                 navigator.clipboard.writeText(info);
 
                 if (paintEnabled) {
@@ -148,7 +91,7 @@ function renderPixelGridAdvanced() {
                 copyFeedback.style.opacity = "1";
                 setTimeout(() => {
                     copyFeedback.style.opacity = "0";
-                }, 1000); // some após 1 segundo
+                }, 3000); // some após 3 segundo
             });
 
 
@@ -197,4 +140,4 @@ function initMenu() {
 
 // ==== Inicialização ====
 initMenu();
-renderTabela("pessoas"); // inicia com a tabela de pessoas
+renderTabela("stream"); // inicia com a tabela de pessoas

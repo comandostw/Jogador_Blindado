@@ -69,6 +69,8 @@ body {
   font-weight: 600;
 }
 
+
+
 /* ===== Grade Pixel ===== */
 .pixel-container {
   display: flex;
@@ -79,11 +81,13 @@ body {
 
 .parent {
   display: grid;
-  grid-template-columns: repeat(68, 12px);
-  grid-template-rows: repeat(38, 12px);
-  grid-column-gap: 1px;
-  grid-row-gap: 1px;
+  grid-template-columns: repeat(68, 1fr);
+  grid-template-rows: repeat(38, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  background-color: #f0f0f0; /* cinza claro */
 }
+
 
 .pixel {
   width: 12px;
@@ -205,6 +209,15 @@ table th {
   letter-spacing: 0.5px;
   border: 1px solid #2c80c4; /* 🔹 borda mais forte no header */
 }
+
+.subtitulo-tabela {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+    margin: 5px 0 15px 0;
+    color: #666;
+}
+
 
 /* Linhas alternadas */
 table tbody tr:nth-child(even) {
